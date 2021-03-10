@@ -9,6 +9,7 @@ import { ViewComponent } from './pages/view/view.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     ViewComponent,
     HeaderComponent,
     FooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
