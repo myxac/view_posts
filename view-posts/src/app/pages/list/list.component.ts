@@ -9,6 +9,7 @@ import { DataService } from 'src/app/services/data.service';
 export class ListComponent implements OnInit {
   postsList: any = [];
   topPosts: any = [];
+  popularPosts: any = [];
   loading: boolean = false;
   constructor(
     public dataService: DataService,
@@ -23,8 +24,9 @@ export class ListComponent implements OnInit {
     let path = 'posts';
     this.dataService.getData(path).subscribe(result =>{
       this.postsList = result;
-      this.topPosts = this.dataService.addImg(this.postsList.splice(0,2));
-      this.loading = false;
+      this.topPosts = this.postsList.splice(0,1);
+      this.popularPosts = this.postsList.splice(0,4);
+        this.loading = false;
     },err =>{
       this.loading = false;
     })

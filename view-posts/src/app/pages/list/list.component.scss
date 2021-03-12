@@ -1,11 +1,22 @@
 mat-card,mat-list-item{
     height:100%;
     margin-top: 10px;
+    img{
+        transition: transform .8s linear;
+        height: 65%;
+
+    }
     &:hover{
         cursor: pointer;
         background: rgba(63, 81, 181, .1);
+        img{
+            transform: scale(1.1);
+        }
     }
 }
 .mat-list-icon {
     color: rgba(0, 0, 0, 0.4);
+  }
+  mat-card {
+      overflow: hidden;
   }

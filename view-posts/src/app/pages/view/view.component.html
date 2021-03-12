@@ -9,7 +9,7 @@
             <mat-card-subtitle>Post №{{onePost.id}}</mat-card-subtitle>
             <mat-card-title>{{onePost.title}}</mat-card-title>
           </mat-card-header>
-          <img *ngIf="onePost.image" mat-card-image src="{{onePost.image}}">
+          <img *ngIf="onePost.isImage" mat-card-image src="assets/example_img_{{onePost.id}}.jpg">
           <mat-card-content>
             <h3>
               {{onePost.body}}
@@ -31,5 +31,5 @@
       </div>
     </div>
   </div>
-  <app-footer></app-footer>
+  <app-footer *ngIf="onePost"></app-footer>
 </main>

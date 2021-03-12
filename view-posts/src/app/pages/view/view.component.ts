@@ -30,16 +30,15 @@ export class ViewComponent implements OnInit {
   getOnePost(): void { 
     this.loading = true;
     this.dataService.getData(this.path).subscribe(result => {
-      this.id == 1 || this.id == 2
-      ? this.onePost = this.dataService.addImg(result, true)
-      : this.onePost = result;
-      console.log(this.onePost);
+       this.onePost = result
+      if(this.id > 0 && this.id <= 5 ){
+        this.onePost.isImage = true;
+      }
       this.getComments();
     })
   }
   getComments(): void {
     this.dataService.getData(`${this.path}/comments`).subscribe(result =>{
-      console.log(result);
       this.comments = result;
       this.loading = false;
     },err =>{

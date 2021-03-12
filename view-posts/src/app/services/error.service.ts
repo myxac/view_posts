@@ -5,5 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class ErrorService {
 
-  constructor() { }
+  constructor(
+  ) { }
+  showError(message: string){
+    alert(message);
+  }
 }

@@ -3,9 +3,9 @@
 <div *ngIf="!loading">
   <div class="container">
     <div class="row">
-        <div class="col-sm-12 col-md-6" style="margin-top:10px" *ngFor="let item of topPosts">
+        <div style="margin-top: 10px;"class="col-sm-12 col-md-6" *ngFor="let item of topPosts">
           <mat-card margin="10px" [routerLink]="['/', 'view', item.id]" >
-            <img mat-card-image src="{{item.image}}" alt="Photo of a Shiba Inu">
+              <img mat-card-image src="assets/example_img_{{item.id}}.jpg">
             <mat-card-content>
                   <h2>
                     {{item.title}}
@@ -13,7 +13,21 @@
                 </mat-card-content>
               </mat-card>
             </div>
-      <div class="col-12">
+            <div class="col-sm-12 col-md-6">
+              <div class="row">
+                <div style="margin-top: 10px;" class="col-sm-12 col-md-6" *ngFor="let item of popularPosts">
+                  <mat-card margin="10px" [routerLink]="['/', 'view', item.id]" >
+                    <img mat-card-image src="assets/example_img_{{item.id}}.jpg" alt="Photo of a Shiba Inu">
+                    <mat-card-content>
+                      <h2>
+                        {{item.title}}
+                      </h2>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+              </div>
+            </div>
+      <div style="margin-top: 10px;" class="col-12">
         <mat-list>
           <h2 mat-subheader>All Posts</h2>
           <mat-list-item [routerLink]="['/', 'view', item.id]" *ngFor="let item of postsList">
@@ -25,5 +39,5 @@
       </div>
     </div>
    </div>
-   <app-footer></app-footer>
+   <app-footer *ngIf="postsList.length > 0"></app-footer>
   </div>

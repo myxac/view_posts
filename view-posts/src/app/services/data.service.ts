@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { API_ENDPOINT } from '../app.config';
 import { Observable } from 'rxjs';
 import { tap, map } from "rxjs/operators";
+import { ErrorService } from './error.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class DataService {
   headers : any;
   constructor(
     private http: HttpClient,
+    public errorService : ErrorService
   ) { 
     this.headers ={
       headers : new HttpHeaders({
@@ -26,15 +28,8 @@ export class DataService {
         console.log('return posts list from API');
       }, error =>{
         console.log(error);
+        this.errorService.showError(error.message);
       })
     )
-  }
-  addImg(array : any, isObject : boolean =false){
-    let path ="https://material.angular.io/assets/img/examples/shiba2.jpg";
-    isObject? array.image = path:
-    array.forEach((item: { image: string; }) =>{
-       item.image = path
-    });
-    return array;
   }
 }
