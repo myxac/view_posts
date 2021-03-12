@@ -1,0 +1,12 @@
+.mat-list-icon {
+    color: rgba(0, 0, 0, 0.4);
+  }
+  mat-card-content{
+    text-align: center;
+  }
+mat-list-item{
+    margin-top: 10px;
+    &:hover{
+        background: rgba(63, 81, 181, .1);
+    }
+}

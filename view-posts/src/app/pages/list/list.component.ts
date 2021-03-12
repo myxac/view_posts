@@ -7,8 +7,9 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-
-  postsList : any;
+  postsList: any = [];
+  topPosts: any = [];
+  loading: boolean = false;
   constructor(
     public dataService: DataService,
   ) { }
@@ -18,9 +19,14 @@ export class ListComponent implements OnInit {
   }
 
   getPostsList(): void {
-    this.dataService.getAllPosts().subscribe(res =>{
-      console.log(res);
-      this.postsList = res;
+    this.loading = true;
+    let path = 'posts';
+    this.dataService.getData(path).subscribe(result =>{
+      this.postsList = result;
+      this.topPosts = this.dataService.addImg(this.postsList.splice(0,2));
+      this.loading = false;
+    },err =>{
+      this.loading = false;
     })
   }
 }

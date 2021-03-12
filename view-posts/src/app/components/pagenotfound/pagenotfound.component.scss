@@ -1,0 +1,13 @@
+.content{
+    height:100vh;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content__text_block{
+       text-align:center;
+       a{
+           display: inline-block;
+       }
+    }
+}
